@@ -52,22 +52,60 @@ function View () {
       STATE.setStorage();
       View();
     });
+
+    let text = document.createTextNode(' ');
+    h5.appendChild(text);
+
+    let editBtn = document.createElement('button');
+    editBtn.className = 'btn btn-outline-success btn-sm';
+    editBtn.textContent = 'Edit';
+    h5.appendChild(editBtn);
+    editBtn.setAttribute('data-toggle','modal');
+    editBtn.setAttribute('data-target', '#exampleModalCenter');
+    editBtn.addEventListener('click', () => {
+      document.getElementById('modal-title').textContent = 'Редактировать';
+       let idInput = document.getElementById('add-id'),
+           addressInput = document.getElementById('add-address'),
+           addModalButton = document.getElementById('add-modal');
+       idInput.value = STATE.listShops[i].id;
+       addressInput.value = STATE.listShops[i].address;
+       addModalButton.textContent = 'Изменить';
+       addModalButton.classList.remove('btn-primary');
+       addModalButton.classList.add('btn-warning');
+       addModalButton.onclick = function () {
+         STATE.listShops[i].id = idInput.value;
+         STATE.listShops[i].address = addressInput.value;
+         STATE.setStorage();
+         View ();
+       };
+    });
   }
 }
 
 function Controller () {
-  let addButton = document.getElementById('add-modal'),
+  let addModalButton = document.getElementById('add-modal'),
+      addButton = document.getElementById('add-btn'),
       idInput = document.getElementById('add-id'),
-      addressInput = document.getElementById('add-address');
+      addressInput = document.getElementById('add-address'),
+      title = document.getElementById('modal-title');
 
   addButton.addEventListener('click', () => {
-    STATE.listShops.push({
-      id: idInput.value,
-      address: addressInput.value
-    });
-    STATE.setStorage();
-    View();
+      title.textContent = 'Добавить магазин';
+      idInput.value = '';
+      addressInput.value = '';
+      addModalButton.textContent = 'Добавить магазин';
+      addModalButton.classList.remove('btn-warning');
+      addModalButton.classList.add('btn-primary');
+      addModalButton.onclick = function () {
+          STATE.listShops.push({
+              id: idInput.value,
+              address: addressInput.value
+          });
+          STATE.setStorage();
+          View();
+      };
   });
+
 }
 
 View();
