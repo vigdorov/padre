@@ -9,3 +9,12 @@
 h4 {
     text-align: center;
 }
+.right {
+    float: right;
+    padding-top: 0px;
+}
+.time-width {
+    max-width: 80px;
+    text-align: center;
+    font-size: 12px;
+}

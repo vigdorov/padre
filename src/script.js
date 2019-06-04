@@ -56,6 +56,7 @@ function View () {
     let text = document.createTextNode(' ');
     h5.appendChild(text);
 
+
     let editBtn = document.createElement('button');
     editBtn.className = 'btn btn-outline-success btn-sm';
     editBtn.textContent = 'Edit';
@@ -79,6 +80,25 @@ function View () {
          View ();
        };
     });
+    let dangerUl = document.createElement('ul');
+    dangerUl.className = 'danger-list list-group list-group-horizontal-md right';
+    h5.appendChild(dangerUl);
+    let dangerLi = document.createElement('li');
+      dangerLi.className = 'list-group-item time-width list-group-item-danger';
+      dangerLi.textContent = '06.06.2019 16:20';
+      dangerUl.appendChild(dangerLi);
+      let warningLi = document.createElement('li');
+      warningLi.className = 'list-group-item time-width list-group-item-warning';
+      warningLi.textContent = '08.06.2019 12:20';
+      dangerUl.appendChild(warningLi);
+      let infoLi = document.createElement('li');
+      infoLi.className = 'list-group-item time-width list-group-item-info';
+      infoLi.textContent = '10.06.2019 12:20';
+      dangerUl.appendChild(infoLi);
+      let lightLi = document.createElement('li');
+      lightLi.className = 'list-group-item time-width list-group-item-light';
+      lightLi.textContent = '24.06.2019 12:20';
+      dangerUl.appendChild(lightLi);
   }
 }
 
