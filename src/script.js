@@ -32,6 +32,8 @@ function View () {
     li.className = 'list-group-item';
     ul.appendChild(li);
 
+
+
     let h5 = document.createElement('h5');
     li.appendChild(h5);
 
@@ -56,31 +58,41 @@ function View () {
     let text = document.createTextNode(' ');
     h5.appendChild(text);
 
+      let editBtn = document.createElement('button');
+      editBtn.className = 'btn btn-outline-success btn-sm';
+      editBtn.textContent = 'Edit';
+      h5.appendChild(editBtn);
+      editBtn.setAttribute('data-toggle','modal');
+      editBtn.setAttribute('data-target', '#exampleModalCenter');
+      editBtn.addEventListener('click', () => {
+          document.getElementById('modal-title').textContent = 'Редактировать';
+          let idInput = document.getElementById('add-id'),
+              addressInput = document.getElementById('add-address'),
+              addModalButton = document.getElementById('add-modal');
+          idInput.value = STATE.listShops[i].id;
+          addressInput.value = STATE.listShops[i].address;
+          addModalButton.textContent = 'Изменить';
+          addModalButton.classList.remove('btn-primary');
+          addModalButton.classList.add('btn-warning');
+          addModalButton.onclick = function () {
+              STATE.listShops[i].id = idInput.value;
+              STATE.listShops[i].address = addressInput.value;
+              STATE.setStorage();
+              View ();
+          };
+      });
 
-    let editBtn = document.createElement('button');
-    editBtn.className = 'btn btn-outline-success btn-sm';
-    editBtn.textContent = 'Edit';
-    h5.appendChild(editBtn);
-    editBtn.setAttribute('data-toggle','modal');
-    editBtn.setAttribute('data-target', '#exampleModalCenter');
-    editBtn.addEventListener('click', () => {
-      document.getElementById('modal-title').textContent = 'Редактировать';
-       let idInput = document.getElementById('add-id'),
-           addressInput = document.getElementById('add-address'),
-           addModalButton = document.getElementById('add-modal');
-       idInput.value = STATE.listShops[i].id;
-       addressInput.value = STATE.listShops[i].address;
-       addModalButton.textContent = 'Изменить';
-       addModalButton.classList.remove('btn-primary');
-       addModalButton.classList.add('btn-warning');
-       addModalButton.onclick = function () {
-         STATE.listShops[i].id = idInput.value;
-         STATE.listShops[i].address = addressInput.value;
-         STATE.setStorage();
-         View ();
-       };
-    });
-    let dangerUl = document.createElement('ul');
+      let text2 = document.createTextNode(' ');
+      h5.appendChild(text2);
+
+      let collapseBtn = document.createElement('button');
+      collapseBtn.className = 'btn btn-primary btn-sm';
+      collapseBtn.textContent = 'Добавить событие';
+      h5.appendChild(collapseBtn);
+      collapseBtn.setAttribute('data-toggle','modal');
+      collapseBtn.setAttribute('data-target', '.bd-example-modal-xl');
+
+      let dangerUl = document.createElement('ul');
     dangerUl.className = 'danger-list list-group list-group-horizontal-md right';
     h5.appendChild(dangerUl);
     let dangerLi = document.createElement('li');
@@ -99,7 +111,7 @@ function View () {
       lightLi.className = 'list-group-item time-width list-group-item-light';
       lightLi.textContent = '24.06.2019 12:20';
       dangerUl.appendChild(lightLi);
-  }
+        }
 }
 
 function Controller () {
@@ -125,6 +137,7 @@ function Controller () {
           View();
       };
   });
+
 
 }
 
