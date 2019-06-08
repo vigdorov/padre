@@ -1,14 +1,20 @@
-/*
-
-Описать возможности будущего приложения:
-1. Добавлять, редактировать, удалять магазины (данные сохраняются в памяти)
-2. У магазинов есть дата последнего ТО и поле с комментариями о ТО
-
- */
+import 'bootstrap';
+import './style.css';
 
 const STATE = {
   listShops: [
-    {id: 234, address: 'Гатчина'},
+    {
+      id: 234,
+      address: 'Гатчина',
+      tasks: {
+        to: { date: '', check: true, desc: ''},
+        order: [
+          {date: '', priority: '', type: '', desc: ''},
+          {date: '', priority: '', type: '', desc: ''},
+          {date: '', priority: '', type: '', desc: ''},
+        ]
+      }
+    },
     {id: 342, address: 'Москва'},
     {id: 232, address: 'Питер'},
   ],
@@ -20,6 +26,24 @@ const STATE = {
     let shops = JSON.stringify(STATE.listShops);
     localStorage.setItem('shops', shops);
   }
+};
+
+const STORE = {
+  orderType: [
+    'Высокий',
+    'Средний',
+    'Низкий',
+    'ТО',
+  ],
+  orderPriority: [
+    'Кондиционер',
+    'Холодильная горка',
+    'Вентиляция',
+    'Касса',
+    'Пресс',
+    'Гриль',
+    'Другое',
+  ],
 };
 
 function View () {
