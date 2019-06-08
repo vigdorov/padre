@@ -1,6 +1,8 @@
 import 'bootstrap';
 import './style.css';
 
+import STORE from './store/store';
+
 const STATE = {
   listShops: [
     {
@@ -26,24 +28,6 @@ const STATE = {
     let shops = JSON.stringify(STATE.listShops);
     localStorage.setItem('shops', shops);
   }
-};
-
-const STORE = {
-  orderType: [
-    'Высокий',
-    'Средний',
-    'Низкий',
-    'ТО',
-  ],
-  orderPriority: [
-    'Кондиционер',
-    'Холодильная горка',
-    'Вентиляция',
-    'Касса',
-    'Пресс',
-    'Гриль',
-    'Другое',
-  ],
 };
 
 function View () {
