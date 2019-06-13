@@ -1,0 +1,39 @@
+@import '../colors';
+
+.bottom-panel {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: $clr-panel-bg;
+  border-top: 1px solid $clr-panel-border;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  z-index: 20;
+
+  &__item {
+    margin: 5px 0;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    color: $clr-menu-icon;
+    position: relative;
+    text-decoration: none;
+
+    &-title {
+      font-size: 10px;
+    }
+
+    .active &-img::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 24px;
+      height: 3px;
+      top: -5px;
+      background-color: $clr-active;
+    }
+  }
+}

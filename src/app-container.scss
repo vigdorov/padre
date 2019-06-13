@@ -1,0 +1,54 @@
+@import 'components/colors';
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $clr-content-bg;
+}
+
+.app-container {
+  width: 100%;
+  height: 100%;
+  font-family: Roboto, sans-serif;
+
+
+  .text-danger {
+    color: $clr-danger;
+  }
+
+  .text-warning {
+    color: $clr-warning;
+  }
+
+  .text-success {
+    color: $clr-success;
+  }
+
+  .text-secondary {
+    color: $clr-text-secondary;
+  }
+
+  .text-primary {
+    color: $clr-text-primary;
+  }
+
+  .text-active {
+    color: $clr-active;
+  }
+
+  .active {
+    color: $clr-active;
+  }
+}
+
+
+
+.body-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: $clr-content-bg;
+  padding-top: 50px;
+}

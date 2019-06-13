@@ -1,0 +1,55 @@
+@import '../colors';
+
+.top-panel {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $clr-panel-bg;
+  height: 50px;
+  border-bottom: 1px solid $clr-panel-border;
+
+  &__header {
+    min-width: 0;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__subtitle {
+    font-size: 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__right {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+
+    .material-icons {
+      font-size: 30px;
+    }
+  }
+
+  &__left {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+
+    .material-icons {
+      font-size: 30px;
+    }
+  }
+}
