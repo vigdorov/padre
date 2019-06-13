@@ -15,6 +15,7 @@ import Mail from './pages/mail';
 import Settings from './pages/settings';
 
 import AddShop from './pages/add-shop';
+import EditShop from './pages/edit-shop';
 
 import BottomPanel from './components/bottom-panel';
 
@@ -30,14 +31,15 @@ export default class AppContainer extends Component {
           address: 'Гатчина',
           tasks: {
             to: { date: '12.05.2015', check: true, desc: ''},
-            order: [
-              {date: '', priority: '', type: '', desc: ''},
-              {date: '', priority: '', type: '', desc: ''},
-              {date: '', priority: '', type: '', desc: ''},
-            ]
+            order: {
+              low: [],
+              normal: [],
+              high: []
+            }
           }
         }
-      ]
+      ],
+      editIndex: 0,
     };
   }
 
@@ -60,12 +62,27 @@ export default class AppContainer extends Component {
     }, this.setStorage);
   };
 
-  handleEditShop = () => {
+  handleEditShop = (shop) => {
+    let newShops = StateWorker.editShop(this.state, shop);
+    this.setState({
+      shops: [ ...newShops ]
+    }, this.setStorage);
+  };
 
+  handleChangeEditIndex = (index) => {
+    this.setState({
+      editIndex: index
+    });
   };
 
   handleDeleteShop = () => {
+    let id = this.state.editIndex,
+        newShops = this.state.shops.slice();
 
+    newShops.splice(id, 1);
+    this.setState({
+      shops: [ ...newShops]
+    }, this.setStorage);
   };
 
   componentDidMount () {
@@ -78,11 +95,20 @@ export default class AppContainer extends Component {
         <Router>
           <div className="body-content">
             <Route path='/' exact component={() => <GeneralTasks />} />
-            <Route path='/shops' component={() => <Shops shops={this.state.shops}/>} />
+            <Route path='/shops' component={() => <Shops shops={this.state.shops} onEdit={this.handleChangeEditIndex}/>} />
             <Route path='/to' component={() => <TechnicalService />} />
             <Route path='/mail' component={() => <Mail />} />
             <Route path='/settings' component={() => <Settings />} />
             <Route path='/add-shop' component={() => <AddShop onAdd={this.handleAddShop} />} />
+            <Route path='/edit-shop' component={() => {
+              let { editIndex: id, shops } = this.state;
+              return (
+                <EditShop onEdit={this.handleEditShop}
+                          onDelete={this.handleDeleteShop}
+                          shop={shops[id]}
+                />
+              );
+            }} />
           </div>
           <BottomPanel />
         </Router>

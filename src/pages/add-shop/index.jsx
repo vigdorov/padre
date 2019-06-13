@@ -2,7 +2,7 @@ import React from 'react';
 
 import TopPanel from "../../components/top-panel";
 import LinkButton from '../../components/link-button';
-import ShopTopPanel from '../../components/shop-top-panel';
+import ShowTopPanel from '../../components/shop-top-panel';
 
 export default class AddShop extends React.Component {
   constructor (props) {
@@ -43,7 +43,7 @@ export default class AddShop extends React.Component {
                   }
                   left={<LinkButton to='../shops/'>Отмена</LinkButton>}
         />
-        <ShopTopPanel onChange={this.handleChange} {...this.state}/>
+        <ShowTopPanel onChange={this.handleChange} {...this.state}/>
       </React.Fragment>
     );
   }

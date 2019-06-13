@@ -1,0 +1,11 @@
+@import '../colors';
+
+.footer-panel {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: $clr-card-footer;
+  border-bottom: 1px solid $clr-card-border;
+  box-shadow: 0 4px 4px -5px #000000 inset;
+  height: 45px;
+}

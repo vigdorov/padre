@@ -26,11 +26,11 @@ export default class BottomPanel extends React.Component {
       <div className="bottom-panel">
 
         <Item title="Магазины"
-              link="/shops"
-              active={active === '/shops'}
-              onClickItem={this.handleClickItem}>
-          <Store />
-        </Item>
+                     link="/shops"
+                     active={active === '/shops'}
+                     onClickItem={this.handleClickItem}>
+        <Store />
+      </Item>
 
         <Item title="ТО"
               link="/to"

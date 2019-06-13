@@ -41,7 +41,6 @@ export default class CardShop extends React.Component {
                  footerBody={date}
                  notifyIcon={icon}
                  notifyColor={iconColor}
-                 onClick={() => console.log(0)}
       />
     );
   }
