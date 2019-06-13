@@ -23,3 +23,8 @@ h4 {
 h2{
     text-align: center;
 }
+.info-left {
+    position: absolute;
+    left: -60px;
+    top: 30px;
+}

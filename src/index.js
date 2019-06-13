@@ -100,6 +100,13 @@ function View () {
       collapseBtn.setAttribute('data-toggle','modal');
       collapseBtn.setAttribute('data-target', '.bd-example-modal-xl');
 
+      let tuskInfoBtn = document.createElement('button');
+      tuskInfoBtn.className = 'btn btn-primary btn-sm info-left';
+      tuskInfoBtn.textContent = 'Инфо';
+      li.appendChild(tuskInfoBtn);
+      tuskInfoBtn.setAttribute('data-toggle','modal');
+      tuskInfoBtn.setAttribute('data-target', '#modal-info');
+
       let dangerUl = document.createElement('ul');
     dangerUl.className = 'danger-list list-group list-group-horizontal-md right';
     h5.appendChild(dangerUl);
