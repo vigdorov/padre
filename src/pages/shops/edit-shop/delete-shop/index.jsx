@@ -2,7 +2,7 @@ import React from 'react';
 
 import { DeleteForever } from "@material-ui/icons";
 
-import LinkButton from "../../../components/link-button";
+import LinkButton from "../../../../components/link-button";
 import './style.scss';
 
 export default class DeleteShop extends React.Component {

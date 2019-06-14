@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import AppContainer from './app-container';
 import * as serviceWorker from './serviceWorker';
 
+// import Auth from './functions/drive-auth';
+
 ReactDOM.render(
   <AppContainer />,
   document.getElementById('root')

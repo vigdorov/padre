@@ -1,8 +1,8 @@
 import React from 'react';
 
-import TopPanel from "../../components/top-panel";
-import LinkButton from '../../components/link-button';
-import ShowTopPanel from '../../components/shop-top-panel';
+import TopPanel from "../../../components/top-panel";
+import LinkButton from '../../../components/link-button';
+import ShowTopPanel from '../../../components/shop-top-panel';
 
 export default class AddShop extends React.Component {
   constructor (props) {

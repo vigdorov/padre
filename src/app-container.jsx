@@ -14,8 +14,8 @@ import GeneralTasks from './pages/general-tasks';
 import Mail from './pages/mail';
 import Settings from './pages/settings';
 
-import AddShop from './pages/add-shop';
-import EditShop from './pages/edit-shop';
+import AddShop from './pages/shops/add-shop';
+import EditShop from './pages/shops/edit-shop';
 
 import BottomPanel from './components/bottom-panel';
 
@@ -96,7 +96,7 @@ export default class AppContainer extends Component {
           <div className="body-content">
             <Route path='/' exact component={() => <GeneralTasks />} />
             <Route path='/shops' component={() => <Shops shops={this.state.shops} onEdit={this.handleChangeEditIndex}/>} />
-            <Route path='/to' component={() => <TechnicalService />} />
+            <Route path='/to' component={() => <TechnicalService shops={this.state.shops} />} />
             <Route path='/mail' component={() => <Mail />} />
             <Route path='/settings' component={() => <Settings />} />
             <Route path='/add-shop' component={() => <AddShop onAdd={this.handleAddShop} />} />

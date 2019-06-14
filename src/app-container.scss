@@ -41,6 +41,24 @@ html, body {
   .active {
     color: $clr-active;
   }
+
+  .bg {
+    &-active {
+      background-color: $clr-active;
+    }
+
+    &-success {
+      background-color: $clr-success;
+    }
+
+    &-warning {
+      background-color: $clr-warning;
+    }
+
+    &-danger {
+      background-color: $clr-danger;
+    }
+  }
 }
 
 

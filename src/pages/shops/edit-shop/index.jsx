@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 
-import TopPanel from "../../components/top-panel";
-import LinkButton from "../../components/link-button";
-import ShowTopPanel from '../../components/shop-top-panel';
+import TopPanel from "../../../components/top-panel";
+import LinkButton from "../../../components/link-button";
+import ShowTopPanel from '../../../components/shop-top-panel';
 import DeleteShop from "./delete-shop";
-import FooterPanel from "../../components/footer-panel";
+import FooterPanel from "../../../components/footer-panel";
 
 export default class EditShop extends Component {
   constructor (props) {
