@@ -1,38 +1,40 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import TopPanel from "../../components/top-panel";
-import FloatingButton from '../../components/floating-button';
-import CardShop from './card-shop';
+import HeaderControl from '../../components/containers/header-control';
+import BodyApp from '../../components/containers/body-app';
+import FooterControl from '../../components/containers/footer-control';
+import NavBar from '../../components/nav-bar';
+import HeaderPanel from '../../components/header-panel';
+import CardShop from '../../components/shops/card-shop';
 
-import  { PlaylistAdd, LowPriority } from '@material-ui/icons';
+const Index = props => {
+  return (
+    <React.Fragment>
+      <HeaderControl>
+        <HeaderPanel title="Магазины" subtitle="Список всех магазинов" />
+      </HeaderControl>
+      <BodyApp>
+        {props.shops.map(shop => {
+          return <CardShop key={shop.id} {...shop} />;
+        })}
+      </BodyApp>
+      <FooterControl>
+        <NavBar />
+      </FooterControl>
+    </React.Fragment>
+  );
+};
 
-import './style.scss';
+const mapStateToProps = store => {
+  return {
+    shops: [...store.app.shops],
+  };
+};
 
-export default class Shops extends React.Component {
-  render () {
-    let { shops, onEdit } = this.props;
+export default connect(mapStateToProps)(Index);
 
-    let cardShops = shops.map( (shop, i) => {
-      return (
-        <Link to="/edit-shop" key={i} className="card-shop" onClick={() => onEdit(i)}>
-          <CardShop shop={shop} />
-        </Link>
-      );
-    });
-
-    return (
-      <React.Fragment>
-        <TopPanel header="Магазины"
-                  subtitle="Список обслуживаемых магазинов"
-                  right={<LowPriority/>}
-        />
-        <FloatingButton to="../add-shop/">
-          <PlaylistAdd/>
-        </FloatingButton>
-        { cardShops }
-
-      </React.Fragment>
-    );
-  }
-}
+Index.propTypes = {
+  shops: PropTypes.array.isRequired,
+};

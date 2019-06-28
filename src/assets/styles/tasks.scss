@@ -1,0 +1,111 @@
+@import './colors';
+
+.card-task {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid $card-border;
+  text-decoration: none;
+  color: $text-primary;
+  font-size: 12px;
+  padding: 10px 10px 10px 55px;
+  position: relative;
+
+  &__title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  &__shop-address {}
+  &__comment {
+    margin-right: 75px;
+  }
+
+  &__priority {
+    position: absolute;
+    font-size: 10px;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  &__priority-icon {
+    position: absolute;
+    left: 15px;
+    right: 10px;
+  }
+  &__date {
+    color: $text-secondary;
+    font-size: 10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+.task-form-group {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 15px;
+
+
+  &__btn-wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  &__edit-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $text-primary;
+    text-decoration: none;
+    border: none;
+    padding: 0 10px;
+    background-color: $color-warning;
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    height: 30px;
+    margin-bottom: 10px;
+
+    &:hover {
+      border: 1px solid $panel-border;
+    }
+  }
+
+  &__del-btn {
+    border: none;
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    height: 30px;
+    color: $color-danger;
+    text-decoration: none;
+    margin-bottom: 10px;
+
+    &:hover {
+      background-color: $color-danger;
+      color: $text-light;
+    }
+  }
+
+  &__success-btn {
+    display: flex;
+    padding: 0 10px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    background-color: $color-success;
+    color: $text-primary;
+    text-decoration: none;
+    margin-bottom: 10px;
+
+    &:hover {
+      border: 1px solid $panel-border;
+    }
+  }
+}

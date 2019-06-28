@@ -1,9 +1,9 @@
 const path = require('path'),
-      HtmlWebpackPlugin = require('html-webpack-plugin'),
-      MiniCssExtractPlugin = require('mini-css-extract-plugin');
+  HtmlWebpackPlugin = require('html-webpack-plugin'),
+  MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/date-worker.js',
   output: {
     path: path.join(__dirname + '/build'),
     filename: './script.js',
@@ -11,33 +11,29 @@ module.exports = {
   devServer: {
     compress: true,
     port: 3005,
-    open: true
+    open: true,
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader'
-        ]
-      }
-    ]
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
       publicPath: './build',
-      filename: 'index.html'
+      filename: 'dateWorker.js.html',
     }),
     new MiniCssExtractPlugin({
       filename: './style.css',
-    })
-  ]
+    }),
+  ],
 };
