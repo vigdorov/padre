@@ -74,7 +74,7 @@ class TaskEditFormGroup extends Component {
   render() {
     const { id, title, comment, date, priority, shop } = this.state;
     return (
-      <div className="task-form-group">
+      <div className="merger-form-group">
         <InputGroup label="id" value={id} id="shop-id" disabled />
         <InputGroup label="Магазин:" id="shop" value={shop} disabled />
         <InputGroup
@@ -103,23 +103,23 @@ class TaskEditFormGroup extends Component {
           id="priority"
           onChange={this.handleChange}
         />
-        <div className="task-form-group__btn-wrapper">
+        <div className="merger-form-group__btn-wrapper">
           <Link
             to={URL_TASKS}
-            className="task-form-group__success-btn"
+            className="merger-form-group__success-btn"
             onClick={this.handleSuccessTask}>
             Выполнить
           </Link>
           <Link
             to={URL_TASKS}
-            className="task-form-group__edit-btn"
+            className="merger-form-group__edit-btn"
             type="button"
             onClick={this.handleSuccessEdit}>
             Изменить
           </Link>
           <Link
             to={URL_TASKS}
-            className="task-form-group__del-btn"
+            className="merger-form-group__del-btn"
             onClick={this.handleDeleteTask}
             type="button">
             Удалить

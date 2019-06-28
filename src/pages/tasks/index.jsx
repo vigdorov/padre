@@ -21,7 +21,7 @@ const getCurrentDate = () => {
   return new Date(year, month, day);
 };
 
-const Index = props => {
+const Tasks = props => {
   const expired = [
     <FilterWrapper key="exp" title="Просроченные задачи" type="danger" />,
   ];
@@ -86,9 +86,9 @@ const mapStateToProps = store => {
   };
 };
 
-export default connect(mapStateToProps)(Index);
+export default connect(mapStateToProps)(Tasks);
 
-Index.propTypes = {
+Tasks.propTypes = {
   tasks: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,

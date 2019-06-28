@@ -2,23 +2,46 @@ import * as ACT from './actions';
 import store from './configure-store';
 
 export function addShop(payload) {
+  const state = store.getState().app;
+  const shops = state.shops.slice();
+  const shopsCounter = state.shopsCounter + 1;
+  shops.push({
+    id: payload.id,
+    number: Number(payload.number),
+    address: payload.address,
+  });
   return {
     type: ACT.SHOP_ADD,
-    payload,
+    payload: {
+      shops: [...shops],
+      shopsCounter,
+    },
   };
 }
 
 export function updateShop(payload) {
+  const state = store.getState().app;
+  const shops = state.shops.slice();
+  const { editShopId } = state;
+  shops[editShopId] = {
+    ...payload,
+  };
   return {
     type: ACT.SHOP_UPDATE,
-    payload,
+    payload: {
+      shops,
+    },
   };
 }
 
 export function deleteShop(payload) {
+  const shops = store.getState().app.shops.slice();
+  shops.splice(payload, 1);
   return {
     type: ACT.SHOP_DELETE,
-    payload,
+    payload: {
+      shops: [...shops],
+    },
   };
 }
 
@@ -33,7 +56,7 @@ export function addTask(payload) {
   const state = store.getState().app;
   const tasks = state.tasks.slice();
   const tasksCounter = state.tasksCounter + 1;
-  tasks.push(payload);
+  tasks.push({ ...payload });
   return {
     type: ACT.TASK_ADD,
     payload: {

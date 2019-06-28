@@ -1,0 +1,37 @@
+@import './colors';
+
+.card-shop {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid $card-border;
+  padding: 10px 15px 10px 55px;
+  color: $text-primary;
+  text-decoration: none;
+  font-size: 12px;
+  position: relative;
+
+  &__ico {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 15px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__number {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  &__address {
+    margin-right: 55px;
+  }
+
+  &__task {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 10px;
+  }
+}

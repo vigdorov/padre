@@ -8,21 +8,23 @@ import FooterControl from '../../components/containers/footer-control';
 import NavBar from '../../components/nav-bar';
 import HeaderPanel from '../../components/header-panel';
 import CardShop from '../../components/shops/card-shop';
+import AddShopButton from "../../components/shops/add-shop-button";
 
-const Index = props => {
+const Shops = props => {
   return (
     <React.Fragment>
       <HeaderControl>
         <HeaderPanel title="Магазины" subtitle="Список всех магазинов" />
       </HeaderControl>
       <BodyApp>
-        {props.shops.map(shop => {
-          return <CardShop key={shop.id} {...shop} />;
+        {props.shops.map((shop, index) => {
+          return <CardShop key={shop.id} {...shop} index={index}/>;
         })}
       </BodyApp>
       <FooterControl>
         <NavBar />
       </FooterControl>
+      <AddShopButton/>
     </React.Fragment>
   );
 };
@@ -33,8 +35,8 @@ const mapStateToProps = store => {
   };
 };
 
-export default connect(mapStateToProps)(Index);
+export default connect(mapStateToProps)(Shops);
 
-Index.propTypes = {
+Shops.propTypes = {
   shops: PropTypes.array.isRequired,
 };

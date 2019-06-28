@@ -48,7 +48,7 @@ class TaskAddFormGroup extends Component {
   render() {
     const { id, title, comment, date, priority, shopId } = this.state;
     return (
-      <div className="task-form-group">
+      <div className="merger-form-group">
         <InputGroup label="id" value={id} id="shop-id" disabled />
         <SelectShopsGroup
           label="Магазин:"
@@ -86,7 +86,7 @@ class TaskAddFormGroup extends Component {
         <Link
           to={URL_TASKS}
           onClick={this.handleAddTask}
-          className="task-form-group__success-btn">
+          className="merger-form-group__success-btn">
           Создать
         </Link>
       </div>

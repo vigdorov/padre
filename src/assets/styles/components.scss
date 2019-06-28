@@ -184,3 +184,72 @@
     background-color: $color-success;
   }
 }
+
+.merger-form-group {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 15px;
+
+
+  &__btn-wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  &__edit-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $text-primary;
+    text-decoration: none;
+    border: none;
+    padding: 0 10px;
+    background-color: $color-warning;
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    height: 30px;
+    margin-bottom: 10px;
+
+    &:hover {
+      border: 1px solid $panel-border;
+    }
+  }
+
+  &__del-btn {
+    border: none;
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    height: 30px;
+    color: $color-danger;
+    text-decoration: none;
+    margin-bottom: 10px;
+
+    &:hover {
+      background-color: $color-danger;
+      color: $text-light;
+    }
+  }
+
+  &__success-btn {
+    display: flex;
+    padding: 0 10px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    background-color: $color-success;
+    color: $text-primary;
+    text-decoration: none;
+    margin-bottom: 10px;
+
+    &:hover {
+      border: 1px solid $panel-border;
+    }
+  }
+}

@@ -8,9 +8,17 @@ const initialState = {
   shopsCounter: 3,
   tasksCounter: 4,
   shops: [
-    { id: 0, number: 234, address: 'Гатчина' },
-    { id: 1, number: 234, address: 'Москва' },
-    { id: 2, number: 234, address: 'Питер' },
+    {
+      id: 0,
+      number: 1290,
+      address: 'Гатчина, ул. Счастья и радости, д. 18, вход со двора',
+    },
+    { id: 1, number: 4451, address: 'Москва, пр. Правого берега, д. 45б к. 5' },
+    {
+      id: 2,
+      number: 2237,
+      address: 'Санкт-Петербург, наб. Завершенного квеста, д. 17, 2 подъезд',
+    },
   ],
   tasks: [
     {

@@ -5,6 +5,8 @@ export const URL_TASKS = '/';
 export const URL_ADD_TASKS = '/add-task';
 export const URL_EDIT_TASKS = '/edit-task';
 export const URL_SHOPS = '/shops';
+export const URL_ADD_SHOPS = '/add-shop';
+export const URL_EDIT_SHOPS = '/edit-shop';
 
 export const NAVI = [
   {
