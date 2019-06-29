@@ -5,9 +5,11 @@ import 'moment/locale/ru';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as appActions from '../../store/actions-creators';
+import {PRIORITY_HIGH, PRIORITY_MEDIUM, STATUS_DONE} from '../../lib/const';
 import WarningIcon from '../icons/warning-icon';
-import { STATUS_DONE } from '../../lib/const';
 import SuccessIcon from '../icons/success-icon';
+import AttentionIcon from '../icons/attention-icon';
+import DangerIcon from '../icons/danger-icon';
 
 const CardTask = props => {
   const handleClickTask = () => {
@@ -31,6 +33,12 @@ const CardTask = props => {
   }
 
   let icon = <WarningIcon />;
+  if (props.priority === PRIORITY_MEDIUM) {
+    icon = <AttentionIcon />;
+  }
+  if (props.priority === PRIORITY_HIGH) {
+    icon = <DangerIcon />
+  }
   if (props.status === STATUS_DONE) {
     icon = <SuccessIcon />;
   }

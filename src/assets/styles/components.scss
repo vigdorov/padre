@@ -145,6 +145,10 @@
   &.success {
     color: $color-success;
   }
+
+  &.attention {
+    color: $color-attention;
+  }
 }
 
 .circle-add-button {

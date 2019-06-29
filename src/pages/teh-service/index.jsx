@@ -10,7 +10,7 @@ import HeaderPanel from '../../components/header-panel';
 import CardTask from '../../components/tasks/card-task';
 import AddTaskButton from '../../components/tasks/add-task-button';
 import FilterWrapper from '../../components/tasks/filter-wrapper';
-import {PRIORITY_TO, STATUS_ACTIVE, STATUS_DONE} from '../../lib/const';
+import {PRIORITY_TO, STATUS_ACTIVE} from '../../lib/const';
 
 const getCurrentDate = () => {
   const date = new Date();
@@ -21,7 +21,7 @@ const getCurrentDate = () => {
   return new Date(year, month, day);
 };
 
-const Tasks = props => {
+const TehService = props => {
   const expired = [
     <FilterWrapper key="exp" title="Просроченные задачи" type="danger" />,
   ];
@@ -44,7 +44,8 @@ const Tasks = props => {
     const diff = -current.diff(task.date, 'second');
     const renderTask = <CardTask key={task.id} {...task} index={index} />;
 
-    if (task.priority !== PRIORITY_TO) {
+
+    if (task.priority === PRIORITY_TO) {
       if (task.status === STATUS_ACTIVE) {
         if (diff < 0) {
           expired.push(renderTask);
@@ -55,18 +56,16 @@ const Tasks = props => {
         } else {
           other.push(renderTask);
         }
-      }
-      if (task.status === STATUS_DONE) {
+      } else {
         done.push(renderTask);
       }
     }
-
   });
 
   return (
     <React.Fragment>
       <HeaderControl>
-        <HeaderPanel title="Задачи" subtitle="Список всех задач" />
+        <HeaderPanel title="Техническое обслуживание" subtitle="Список плановых задач" />
       </HeaderControl>
       <BodyApp>
         {expired.length > 1 && expired}
@@ -89,9 +88,9 @@ const mapStateToProps = store => {
   };
 };
 
-export default connect(mapStateToProps)(Tasks);
+export default connect(mapStateToProps)(TehService);
 
-Tasks.propTypes = {
+TehService.propTypes = {
   tasks: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,

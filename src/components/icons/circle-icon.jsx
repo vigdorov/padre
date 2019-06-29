@@ -8,5 +8,5 @@ const CircleIcon = props => {
 export default CircleIcon;
 
 CircleIcon.propTypes = {
-  type: PropTypes.oneOf(['warning', 'danger', 'success']).isRequired,
+  type: PropTypes.oneOf(['warning', 'danger', 'success', 'attention']).isRequired,
 };
