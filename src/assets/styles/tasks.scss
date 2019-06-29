@@ -8,7 +8,7 @@
   text-decoration: none;
   color: $text-primary;
   font-size: 12px;
-  padding: 10px 10px 10px 55px;
+  padding: 10px 100px 10px 55px;
   position: relative;
 
   &__title {
@@ -16,9 +16,11 @@
     font-weight: 600;
     margin-bottom: 10px;
   }
-  &__shop-address {}
+  &__shop-address {
+
+  }
   &__comment {
-    margin-right: 75px;
+
   }
 
   &__priority {
@@ -39,5 +41,6 @@
     position: absolute;
     top: 10px;
     right: 10px;
+    max-width: 85px;
   }
 }

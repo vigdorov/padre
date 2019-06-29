@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as appActions from '../../store/actions-creators';
 import WarningIcon from '../icons/warning-icon';
-import { PRIORITY_TO, STATUS_DONE } from '../../lib/const';
+import { STATUS_DONE } from '../../lib/const';
 import SuccessIcon from '../icons/success-icon';
 
 const CardTask = props => {
@@ -17,11 +17,12 @@ const CardTask = props => {
   };
 
   const allShops = props.allShops.slice();
-  let currentShop = allShops.filter(shop => {
+  const filterShop = allShops.filter(shop => {
     return shop.id === props.shopId;
-  })[0];
+  });
+  let currentShop = filterShop[0];
 
-  if (!currentShop) {
+  if (filterShop.length === 0) {
     currentShop = {
       id: -1,
       number: '[Магазин удален]',
@@ -32,11 +33,6 @@ const CardTask = props => {
   let icon = <WarningIcon />;
   if (props.status === STATUS_DONE) {
     icon = <SuccessIcon />;
-  }
-
-  const priority = [props.priority];
-  if (props.priority !== PRIORITY_TO) {
-    priority.unshift(<b key="priority_text">Приоритет: </b>);
   }
 
   const date = moment(props.date).calendar();
@@ -50,7 +46,7 @@ const CardTask = props => {
       <span className="card-task__comment">
         <b>Комментарии:</b> {props.comment}
       </span>
-      <span className="card-task__priority">{priority}</span>
+      <span className="card-task__priority">{props.priority}</span>
       <span className="card-task__priority-icon">{icon}</span>
       <span className="card-task__date">{date}</span>
     </Link>

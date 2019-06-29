@@ -11,8 +11,16 @@ const EditTask = props => {
   let taskForm;
   if (props.editTaskId > -1) {
     const task = props.tasks[props.editTaskId];
-    let shop = props.shops[task.shopId];
-    if (!shop) {
+
+    const allShops = props.shops.slice();
+
+    const filterShop = allShops.filter(shop => {
+      return shop.id === task.shopId;
+    });
+
+    let shop = filterShop[0];
+
+    if (filterShop.length === 0) {
       shop = {
         id: -1,
         number: '[Магазин удален]',

@@ -3,6 +3,7 @@
 .card-shop {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   border-bottom: 1px solid $card-border;
   padding: 10px 15px 10px 55px;
   color: $text-primary;
