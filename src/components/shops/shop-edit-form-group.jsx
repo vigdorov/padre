@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 import * as appActions from "../../store/actions-creators";
 import InputGroup from "../forms/input-group";
 import {URL_SHOPS} from "../../route/url";
+import TextareaGroup from "../forms/textarea-group";
 
 class ShopEditFormGroup extends Component {
   static propTypes = {
@@ -17,6 +18,11 @@ class ShopEditFormGroup extends Component {
     setEditShop: PropTypes.func.isRequired,
     updateShop: PropTypes.func.isRequired,
     deleteShop: PropTypes.func.isRequired,
+    note: PropTypes.string,
+  };
+
+  static defaultProps = {
+    note: '',
   };
 
   constructor (props) {
@@ -26,6 +32,7 @@ class ShopEditFormGroup extends Component {
       id: props.id,
       number: props.number,
       address: props.address,
+      note: props.note,
     };
   }
 
@@ -66,6 +73,12 @@ class ShopEditFormGroup extends Component {
           id="address"
           value={address}
           label="Адрес магазина:"
+        />
+        <TextareaGroup
+          label="Замечания"
+          value={this.state.note}
+          id="note"
+          onChange={this.handleChange}
         />
         <div className="merger-form-group__btn-wrapper">
           <Link

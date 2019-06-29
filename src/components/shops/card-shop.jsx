@@ -18,9 +18,15 @@ const CardShop = props => {
   props.tasks.forEach(task => {
     if (task.shopId === props.id) tasks.push(task);
   });
+
+  const icoClass = ['card-shop__ico'];
+  if (props.note) {
+    icoClass.push('text-attention');
+  }
+
   return (
     <Link to={URL_EDIT_SHOPS} onClick={handleClickShop} className="card-shop">
-      <div className="card-shop__ico">
+      <div className={icoClass.join(' ')}>
         <ShoppingCart/>
       </div>
       <span className="card-shop__number">
@@ -58,4 +64,9 @@ CardShop.propTypes = {
   tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
   index: PropTypes.number.isRequired,
   setEditShop: PropTypes.func.isRequired,
+  note: PropTypes.string,
+};
+
+CardShop.defaultProps = {
+  note: ''
 };

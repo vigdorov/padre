@@ -17,6 +17,7 @@ const EditShop = props => {
         id={shop.id}
         number={shop.number}
         address={shop.address}
+        note={shop.note}
         shopIndex={props.editShopId}
       />
     );
