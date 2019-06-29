@@ -1,6 +1,13 @@
 import * as ACT from './actions';
 import store from './configure-store';
 
+export function getStateFromServer(payload) {
+  return {
+    type: ACT.GET_STATE_FROM_SERVER,
+    payload,
+  };
+}
+
 export function addShop(payload) {
   const state = store.getState().app;
   const shops = state.shops.slice();

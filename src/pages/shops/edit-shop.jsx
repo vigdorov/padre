@@ -13,6 +13,7 @@ const EditShop = props => {
 
     shopForm = (
       <ShopEditFormGroup
+        index={props.editShopId}
         id={shop.id}
         number={shop.number}
         address={shop.address}

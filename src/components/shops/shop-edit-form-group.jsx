@@ -10,6 +10,7 @@ import {URL_SHOPS} from "../../route/url";
 
 class ShopEditFormGroup extends Component {
   static propTypes = {
+    index: PropTypes.number.isRequired,
     id: PropTypes.number.isRequired,
     number: PropTypes.number.isRequired,
     address: PropTypes.string.isRequired,
@@ -46,7 +47,7 @@ class ShopEditFormGroup extends Component {
   };
 
   handleDeleteShop = () => {
-    this.props.deleteShop( this.props.id )
+    this.props.deleteShop( this.props.index )
   };
 
   render () {

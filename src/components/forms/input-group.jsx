@@ -5,7 +5,7 @@ const InputGroup = props => {
   return (
     <div className="form-group">
       <label className="form-group__label" htmlFor={props.id}>
-        {props.label}
+        <span>{props.label}</span>
         <input
           className="form-group__input"
           id={props.id}
@@ -13,6 +13,7 @@ const InputGroup = props => {
           onChange={props.onChange}
           value={props.value}
           disabled={props.disabled}
+          required={props.required}
         />
       </label>
       <span className="form-group__hint">{props.hint}</span>

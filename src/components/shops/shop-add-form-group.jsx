@@ -36,16 +36,22 @@ class ShopAddFormGroup extends Component {
   };
 
   handleAddShop = () => {
-    this.props.addTask({
-      id: this.props.tasksCounter,
-      shopId: this.state.id,
-      priority: PRIORITY_TO,
-      status: STATUS_ACTIVE,
-      comment: 'Выполнить плановое техническое обслуживание',
-      title: 'ТО - плановое',
-      date: this.state.date,
-    });
-    this.props.addShop({ ...this.state });
+    const { date } = this.state;
+    if (date) {
+      this.props.addTask({
+        id: this.props.tasksCounter,
+        shopId: this.state.id,
+        priority: PRIORITY_TO,
+        status: STATUS_ACTIVE,
+        comment: 'Выполнить плановое техническое обслуживание',
+        title: 'ТО - плановое',
+        date: this.state.date,
+      });
+      this.props.addShop({ ...this.state });
+    } else {
+      alert('Заполните дату ТО');
+    }
+
   };
 
   render () {
@@ -73,7 +79,7 @@ class ShopAddFormGroup extends Component {
           isDate
         />
         <Link
-          to={URL_SHOPS}
+          to={date.length > 0 && URL_SHOPS}
           onClick={this.handleAddShop}
           className="merger-form-group__success-btn">
           Создать магазин

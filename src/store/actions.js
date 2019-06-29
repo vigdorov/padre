@@ -7,3 +7,5 @@ export const TASK_ADD = 'TASK_ADD';
 export const TASK_UPDATE = 'TASK_UPDATE';
 export const TASK_DELETE = 'TASK_DELETE';
 export const SET_EDIT_TASK = 'SET_EDIT_TASK';
+
+export const GET_STATE_FROM_SERVER = 'GET_STATE_FROM_SERVER';

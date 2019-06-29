@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const Auth = {
   getContent: () => {
-    axios({
+    return axios({
       url: 'https://api.jsonbin.io/b/5d13df62ca3e080d7b645c07/latest',
       method: 'get',
       headers: {
@@ -11,6 +11,7 @@ const Auth = {
       },
     }).then(res => {
       console.log(res);
+      return res.data;
     });
   },
   setContent: data => {

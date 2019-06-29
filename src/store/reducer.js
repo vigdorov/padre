@@ -1,63 +1,13 @@
 import { combineReducers } from 'redux';
 import * as ACT from './actions';
-import { PRIORITY_LOW, STATUS_ACTIVE } from '../lib/const';
 
 const initialState = {
   editShopId: -1,
   editTaskId: -1,
-  shopsCounter: 3,
-  tasksCounter: 4,
-  shops: [
-    {
-      id: 0,
-      number: 1290,
-      address: 'Гатчина, ул. Счастья и радости, д. 18, вход со двора',
-    },
-    { id: 1, number: 4451, address: 'Москва, пр. Правого берега, д. 45б к. 5' },
-    {
-      id: 2,
-      number: 2237,
-      address: 'Санкт-Петербург, наб. Завершенного квеста, д. 17, 2 подъезд',
-    },
-  ],
-  tasks: [
-    {
-      id: 0,
-      shopId: 0,
-      priority: PRIORITY_LOW,
-      status: STATUS_ACTIVE,
-      comment: 'Сделай',
-      title: 'Чото неработает',
-      date: '2019-06-22T15:06',
-    },
-    {
-      id: 1,
-      shopId: 2,
-      priority: PRIORITY_LOW,
-      status: STATUS_ACTIVE,
-      title: 'Чото неработает',
-      comment: 'Не делай',
-      date: '2020-05-22T19:06',
-    },
-    {
-      id: 2,
-      shopId: 1,
-      priority: PRIORITY_LOW,
-      status: STATUS_ACTIVE,
-      title: 'Чото неработает',
-      comment: 'Просто забей болт',
-      date: '2019-06-27T23:06',
-    },
-    {
-      id: 3,
-      shopId: 1,
-      priority: PRIORITY_LOW,
-      status: STATUS_ACTIVE,
-      title: 'Чото неработает',
-      comment: 'Просто забей болт',
-      date: '2019-06-29T11:06',
-    },
-  ],
+  shopsCounter: 0,
+  tasksCounter: 0,
+  shops: [],
+  tasks: [],
 };
 
 function reducer(store = initialState, action) {
@@ -77,6 +27,8 @@ function reducer(store = initialState, action) {
     case ACT.TASK_DELETE:
       return { ...store, ...action.payload };
     case ACT.SET_EDIT_TASK:
+      return { ...store, ...action.payload };
+    case ACT.GET_STATE_FROM_SERVER:
       return { ...store, ...action.payload };
     default:
       return store;

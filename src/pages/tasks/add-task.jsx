@@ -8,6 +8,12 @@ import BodyApp from '../../components/containers/body-app';
 import TaskAddFormGroup from '../../components/tasks/tasks-add-form-group';
 
 const AddTask = props => {
+  let render;
+  if (props.shops.length) {
+    render = <TaskAddFormGroup id={props.tasksCounter} shops={props.shops} />;
+  } else {
+    render = 'Создайте хотябы один магазин!'
+  }
   return (
     <React.Fragment>
       <HeaderControl>
@@ -18,7 +24,7 @@ const AddTask = props => {
         />
       </HeaderControl>
       <BodyApp>
-        <TaskAddFormGroup id={props.tasksCounter} shops={props.shops} />
+        {render}
       </BodyApp>
     </React.Fragment>
   );

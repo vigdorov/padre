@@ -42,14 +42,23 @@ class TaskAddFormGroup extends Component {
   };
 
   handleAddTask = () => {
-    this.props.addTask({ ...this.state });
+    const { title, date } = this.state;
+    if (title && date) {
+      this.props.addTask({ ...this.state });
+    } else {
+      alert('Заполните поля');
+    }
   };
 
   render() {
     const { id, title, comment, date, priority, shopId } = this.state;
+    const addBtnClass = ['merger-form-group__success-btn'];
+    if (!title || !date) {
+      addBtnClass.push('disabled');
+    }
     return (
       <div className="merger-form-group">
-        <InputGroup label="id" value={id} id="shop-id" disabled />
+        <InputGroup label="id" value={id} id="shop-id" disabled/>
         <SelectShopsGroup
           label="Магазин:"
           id="shopId"
@@ -84,9 +93,9 @@ class TaskAddFormGroup extends Component {
           onChange={this.handleChange}
         />
         <Link
-          to={URL_TASKS}
+          to={(title.length > 0 && date.length > 0) && URL_TASKS}
           onClick={this.handleAddTask}
-          className="merger-form-group__success-btn">
+          className={addBtnClass.join(' ')}>
           Создать
         </Link>
       </div>

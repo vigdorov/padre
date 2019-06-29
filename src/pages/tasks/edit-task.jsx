@@ -11,7 +11,14 @@ const EditTask = props => {
   let taskForm;
   if (props.editTaskId > -1) {
     const task = props.tasks[props.editTaskId];
-    const shop = props.shops[task.shopId];
+    let shop = props.shops[task.shopId];
+    if (!shop) {
+      shop = {
+        id: -1,
+        number: '[Магазин удален]',
+        address: '[Магазин удален]',
+      };
+    }
 
     taskForm = (
       <TaskEditFormGroup

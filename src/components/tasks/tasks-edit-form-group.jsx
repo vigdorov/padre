@@ -64,7 +64,12 @@ class TaskEditFormGroup extends Component {
   };
 
   handleSuccessEdit = () => {
-    this.props.updateTask({ ...this.state });
+    const { title, date } = this.state;
+    if (title && date) {
+      this.props.updateTask({ ...this.state });
+    } else {
+      alert('Заполните поля');
+    }
   };
 
   handleDeleteTask = () => {
@@ -111,7 +116,7 @@ class TaskEditFormGroup extends Component {
             Выполнить
           </Link>
           <Link
-            to={URL_TASKS}
+            to={(title.length > 0 && date.length > 0) && URL_TASKS}
             className="merger-form-group__edit-btn"
             type="button"
             onClick={this.handleSuccessEdit}>

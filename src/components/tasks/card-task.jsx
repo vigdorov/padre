@@ -17,9 +17,17 @@ const CardTask = props => {
   };
 
   const allShops = props.allShops.slice();
-  const currentShop = allShops.filter(shop => {
+  let currentShop = allShops.filter(shop => {
     return shop.id === props.shopId;
   })[0];
+
+  if (!currentShop) {
+    currentShop = {
+      id: -1,
+      number: '[Магазин удален]',
+      address: '[Магазин удален]',
+    };
+  }
 
   let icon = <WarningIcon />;
   if (props.status === STATUS_DONE) {
