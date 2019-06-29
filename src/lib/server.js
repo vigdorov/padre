@@ -10,7 +10,6 @@ const Auth = {
           '$2a$10$8V4/OGuY7lMenEt3QVyJXuduXErraPEMdeSWGjAuHaCXM7Ou18gLW',
       },
     }).then(res => {
-      console.log(res);
       return res.data;
     });
   },
