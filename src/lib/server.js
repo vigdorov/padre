@@ -1,5 +1,6 @@
 import axios from 'axios';
 import showUpdateMsg from './update-done';
+import store from '../store/configure-store';
 
 const Auth = {
   getContent: () => {
@@ -14,7 +15,7 @@ const Auth = {
       return res.data;
     });
   },
-  setContent: data => {
+  setContent: (data = store.getState().app) => {
     const jsonData = JSON.stringify({ ...data });
     axios({
       url: 'https://api.jsonbin.io/b/5d13df62ca3e080d7b645c07',
@@ -25,9 +26,13 @@ const Auth = {
         'Content-type': 'application/json',
       },
       data: jsonData,
-    }).then(() => {
-      showUpdateMsg('Данные обновлены!');
-    });
+    })
+      .then(() => {
+        showUpdateMsg('done');
+      })
+      .catch(() => {
+        showUpdateMsg('error');
+      });
   },
 };
 

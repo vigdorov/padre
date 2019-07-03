@@ -2,9 +2,17 @@
     position: absolute;
     top: 15px;
     right: 10px;
-    color: #1e7e34;
+
     font-size: 10px;
     font-weight: bold;
     display: flex;
     z-index: 1000;
+}
+
+#notify .msg-done {
+    color: #1e7e34;
+}
+
+#notify .msg-error {
+    color: #bd2130;
 }
