@@ -1,4 +1,5 @@
 import axios from 'axios';
+import showUpdateMsg from './update-done';
 
 const Auth = {
   getContent: () => {
@@ -14,7 +15,7 @@ const Auth = {
     });
   },
   setContent: data => {
-    const jsonData = JSON.stringify(data);
+    const jsonData = JSON.stringify({ ...data });
     axios({
       url: 'https://api.jsonbin.io/b/5d13df62ca3e080d7b645c07',
       method: 'put',
@@ -24,6 +25,8 @@ const Auth = {
         'Content-type': 'application/json',
       },
       data: jsonData,
+    }).then(() => {
+      showUpdateMsg('Данные обновлены!');
     });
   },
 };
